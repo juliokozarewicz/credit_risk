@@ -1,6 +1,6 @@
 # variables
 # ----------------------------------------------------------------------------
-main_variables = ["loan_intent", "loan_amnt"]
+main_variables = ["loan_intent", "loan_amnt", "cb_person_default_on_file"]
 # ----------------------------------------------------------------------------
 
 # plot

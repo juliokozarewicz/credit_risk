@@ -4,6 +4,7 @@ from descriptive import Descriptive_stats
 from config import main_variables
 from config import style_graph, color1, color2, color3, color4, color5
 
+
 # data base entry
 # ----------------------------------------------------------------------------
 db_raw = data_frame
@@ -11,9 +12,10 @@ db_raw = data_frame
 
 # descriptive statistics
 # ----------------------------------------------------------------------------
-desc_stats = Descriptive_stats(db_raw, main_variables,
+desc_stats = Descriptive_stats(db_raw,
                                style_graph,
-                               color1, color2, color3, color4, color5)
+                               color1, color2, color3, color4, color5,
+                               main_variables)
 
 desc_stats.describe_attributes()
 desc_stats.graph_dependent_var()
