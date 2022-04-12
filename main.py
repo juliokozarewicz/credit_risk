@@ -13,9 +13,13 @@ db_raw = data_frame
 # descriptive statistics
 # ----------------------------------------------------------------------------
 desc_stats = Descriptive_stats(db_raw,
-                               style_graph,
-                               color1, color2, color3, color4, color5,
-                               main_variables)
+                               main_variables = main_variables,
+                               style_graph = style_graph,
+                               color1 = color1, 
+                               color2 = color2, 
+                               color3 = color3, 
+                               color4 = color4, 
+                               color5 = color5)
 
 desc_stats.describe_attributes()
 desc_stats.graph_dependent_var()
