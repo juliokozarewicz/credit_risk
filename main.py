@@ -1,13 +1,27 @@
+#libs
+from pandas import DataFrame
+
 # local
-from mongodb_connection import data_frame
-from descriptive import Descriptive_stats
+from config import client, data_base, collection
 from config import main_variables
 from config import style_graph, color1, color2, color3, color4, color5
+from mongodb_connection import Connection_mongodb
+from descriptive import Descriptive_stats
 
+
+# data cleansing
+# ----------------------------------------------------------------------------
+db_cleansing = Connection_mongodb(client, data_base, collection)
+db_cleansing_exec = db_cleansing.data_cleansing()
+exit()
+# ----------------------------------------------------------------------------
 
 # data base entry
 # ----------------------------------------------------------------------------
-db_raw = data_frame
+data_input = Connection_mongodb(client, data_base, collection)
+data_frame = data_input.all_data()
+
+db_raw = DataFrame(data_frame)
 # ----------------------------------------------------------------------------
 
 # descriptive statistics
@@ -25,3 +39,5 @@ desc_stats.describe_attributes()
 desc_stats.graph_dependent_var()
 desc_stats.statistic_data()
 # ----------------------------------------------------------------------------
+
+

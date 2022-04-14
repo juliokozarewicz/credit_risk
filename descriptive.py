@@ -1,5 +1,5 @@
 # libs
-from pandas import DataFrame, concat, read_csv
+from pandas import DataFrame, read_csv
 from pathlib import Path
 
 # plot
@@ -91,9 +91,7 @@ class Descriptive_stats:
                 # plot
                 plot_data = data_frame[col].hist(color = self.color2,
                                             legend = False,
-                                            bins = 'auto',
-                                            rwidth = 0.7,
-                                            figsize = (12, 6))
+                                            bins = 'auto')
                 
                 # layout
                 plt.title(f"{col.replace('_', ' ').upper()}")
