@@ -45,11 +45,14 @@ class Connection_mongodb:
         # del Nan
         raw = self.client[self.data_base][self.collection]
         
-        teste = DataFrame(raw.find())
-
-        teste = teste[teste['person_emp_length'].isnull()]
+        df_data = DataFrame(raw.find())
         
+        null_list_id = []
         
-        print(teste['person_emp_length'])
-        #for col in raw.find(filt):
-        #    print(col)
+        for col in df_data.columns:
+            
+            teste = df_data[df_data[col].isnull()]['_id']
+            
+            for i in teste:
+                null_list_id.append(i) # transformar em str() caso não de certo.
+        
