@@ -145,11 +145,12 @@ class Descriptive_stats:
                                    "higher"]
             
             # save
-            df_stat_num.to_csv("1_results/3_descriptive_stats.csv", 
-                               sep = ",",
+            df_stat_num.to_csv("1_results/3_descriptive_stats.txt", 
+                               sep = "|",
                                decimal = ".",
                                quotechar = '"',
-                               index = False)
+                               index = False,
+                               float_format = '%.2f')
         
         except Exception as error:
             print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")

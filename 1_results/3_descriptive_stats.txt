@@ -1,0 +1,9 @@
+colum_name|mean|median|standard_deviation|variance|lower|higher
+person_age|27.75|26.00|6.36|40.46|20.00|144.00
+person_income|66693.08|56000.00|62430.29|3897541606.74|4000.00|6000000.00
+person_emp_length|4.79|4.00|4.09|16.72|0.00|123.00
+loan_amnt|9659.21|8000.00|6331.64|40089664.20|500.00|35000.00
+loan_int_rate|9.98|10.65|4.47|20.02|0.00|23.22
+loan_status|0.22|0.00|0.41|0.17|0.00|1.00
+loan_percent_income|0.17|0.15|0.11|0.01|0.00|0.83
+cb_person_cred_hist_length|5.81|4.00|4.06|16.49|2.00|30.00

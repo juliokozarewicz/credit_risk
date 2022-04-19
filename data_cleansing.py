@@ -44,12 +44,13 @@ class Data_cleansing:
             null_list_id = set(null_list_id)
             
             numb_del_percent = (
-            f'{"-" * 80}\n'
-            f'About missing data removed from the original database:\n\n'
-            f'Total number of observations: {len(df_data)}\n'
-            f'Total number of missing data: {len(null_list_id)}\n'
-            f'Percentage of data removed: '
-            f'{ ( ( len(null_list_id) / len(df_data) ) * 100):.2f}%\n\n'
+            f'About missing data removed from the original database:       \n\n'
+            f'| TOTALS                     | VALUES                        \n'
+            f'|----------------------------|-------------------------------\n'
+            f'| Number of observations     | {len(df_data)}\n'
+            f'| Number of missing data     | {len(null_list_id)}\n'
+            f'| Percentage of data removed | '
+            f'{ ( ( len(null_list_id) / len(df_data) ) * 100):.2f}% \n\n\n\n\n'
             )
             
             with open('1_results/0_data_cleansing_report.txt', 'w') as report:
