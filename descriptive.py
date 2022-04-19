@@ -1,8 +1,4 @@
-# libs
 from pandas import DataFrame, read_csv
-from pathlib import Path
-
-# plot
 from matplotlib import pyplot as plt
 
 
@@ -49,9 +45,6 @@ class Descriptive_stats:
         
         else:
             self.main_variables = self.data_frame.columns
-        
-        # make dir
-        Path('./1_results').mkdir(exist_ok=True)
 
 
     def describe_attributes(self):

@@ -1,19 +1,22 @@
-#libs
 from pandas import DataFrame
-
-# local
 from config import client, data_base, collection
 from config import main_variables
 from config import style_graph, color1, color2, color3, color4, color5
 from mongodb_connection import Connection_mongodb
+from data_cleansing import Data_cleansing 
 from descriptive import Descriptive_stats
+from pathlib import Path
 
+
+# make dir
+# ----------------------------------------------------------------------------
+Path('./1_results').mkdir(exist_ok=True)
+# ----------------------------------------------------------------------------
 
 # data cleansing
 # ----------------------------------------------------------------------------
-db_cleansing = Connection_mongodb(client, data_base, collection)
-db_cleansing_exec = db_cleansing.data_cleansing()
-exit()
+db_cleansing = Data_cleansing(client, data_base, collection)
+db_cleansing_exec = db_cleansing.data_cleansing_nan()
 # ----------------------------------------------------------------------------
 
 # data base entry

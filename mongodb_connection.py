@@ -6,6 +6,11 @@ from pandas import DataFrame
 class Connection_mongodb:
     """
     Mongodb database access module.
+
+    syntax: Connection_mongodb(client = Database address,
+                               data_base = Database name,
+                               collection = Collection name,
+                               filter = Data filter)
     """
 
     def __init__(self, client, data_base, collection, dict_filter={}):
@@ -35,24 +40,4 @@ class Connection_mongodb:
         selected_data = selected_data.find(filter=self.filter)
         
         return selected_data
-
-
-    def data_cleansing(self):
-        """
-        *****
-        """
-        
-        # del Nan
-        raw = self.client[self.data_base][self.collection]
-        
-        df_data = DataFrame(raw.find())
-        
-        null_list_id = []
-        
-        for col in df_data.columns:
-            
-            teste = df_data[df_data[col].isnull()]['_id']
-            
-            for i in teste:
-                null_list_id.append(i) # transformar em str() caso não de certo.
-        
+      

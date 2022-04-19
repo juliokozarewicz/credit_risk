@@ -1,0 +1,7 @@
+--------------------------------------------------------------------------------
+About missing data removed from the original database:
+
+Total number of observations: 31682
+Total number of missing data: 0
+Percentage of data removed: 0.00%
+
