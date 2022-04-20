@@ -112,31 +112,28 @@ class Descriptive_stats:
             df_stat_num = []
             
             for col in self.data_frame:
+                
+                if self.data_frame[col].dtype != 'object':
+                    name_col = col
+                    mean_col = self.data_frame[col].mean()
+                    median_col = self.data_frame[col].median()
+                    std_col = self.data_frame[col].std()
+                    var_col = self.data_frame[col].var()
+                    min_col = self.data_frame[col].min()
+                    max_col = self.data_frame[col].max()
                     
-                    if self.data_frame[col].dtype == 'object':
-                        pass
+                    stat_line = [name_col,
+                                 mean_col,
+                                 median_col,
+                                 std_col,
+                                 var_col,
+                                 min_col,
+                                 max_col]
                     
-                    else:
-                        name_col = col
-                        mean_col = self.data_frame[col].mean()
-                        median_col = self.data_frame[col].median()
-                        std_col = self.data_frame[col].std()
-                        var_col = self.data_frame[col].var()
-                        min_col = self.data_frame[col].min()
-                        max_col = self.data_frame[col].max()
-                        
-                        stat_line = [name_col,
-                                     mean_col,
-                                     median_col,
-                                     std_col,
-                                     var_col,
-                                     min_col,
-                                     max_col]
-                        
-                        df_stat_num.append(stat_line)
+                    df_stat_num.append(stat_line)
             
             df_stat_num = DataFrame(df_stat_num)
-            df_stat_num.columns = ["colum_name", 
+            df_stat_num.columns = ["attributes", 
                                    "mean", 
                                    "median", 
                                    "standard_deviation", 

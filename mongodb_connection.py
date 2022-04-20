@@ -1,4 +1,3 @@
-# libs
 from pymongo import MongoClient
 from pandas import DataFrame
 

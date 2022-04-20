@@ -1,11 +1,9 @@
-About missing data removed from the original database:       
+About missing data removed from the original database:      
 
-| TOTALS                     | VALUES                        
-|----------------------------|-------------------------------
+| TOTALS                     | VALUES                         
+|----------------------------|--------------------------------
 | Number of observations     | 31682
 | Number of missing data     | 0
-| Percentage of data removed | 0.00% 
-
-
+| Percentage of data removed | 0.00
 
 

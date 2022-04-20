@@ -16,7 +16,9 @@ Path('./1_results').mkdir(exist_ok=True)
 # data cleansing
 # ----------------------------------------------------------------------------
 db_cleansing = Data_cleansing(client, data_base, collection)
-db_cleansing_exec = db_cleansing.data_cleansing_nan()
+
+db_cleansing.data_cleansing_nan()
+db_cleansing.data_cleansing_outlier()
 # ----------------------------------------------------------------------------
 
 # data base entry
