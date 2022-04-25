@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from pandas import DataFrame
+from numpy import percentile
 
 
 class Data_cleansing:
@@ -49,15 +50,15 @@ class Data_cleansing:
             f'|----------------------------|--------------------------------\n'
             f'| Number of observations     | {len(df_data)}\n'
             f'| Number of missing data     | {len(null_list_id)}\n'
-            f'| Percentage of data removed | {percent_remove:.2f}\n\n\n' 
+            f'| Percentage of data removed | {percent_remove:.2f} %\n\n\n' 
             
             )
             
             with open('1_results/0_data_cleansing_report.txt', 'w') as report:
                 report.write(numb_del_percent)
             
-            for id_select in null_list_id:
-                raw.delete_one( {"_id" : id_select} )
+            #for id_select in null_list_id:
+            #    raw.delete_one( {"_id" : id_select} )
         
         except Exception as error:
             print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")
@@ -67,23 +68,49 @@ class Data_cleansing:
 
     def data_cleansing_outlier(self):
         """
-        ***
+        Get data from mongodb and delete outliers.
         """
         
         try:
             raw = self.client[self.data_base][self.collection]
             
-            df_data = DataFrame(raw.find()).iloc[ : , 1: ]
+            df_data = DataFrame(raw.find())
             
-            null_list_outlier = []
+            outlier_list = []
             
             for col in df_data.columns:
                 
                 if df_data[col].dtype != 'object':
-                    q3 = df_data[col].quantile(0.75)
-                    q1 = df_data[col].quantile(0.25)
+                    q1, q3 = percentile(df_data[col], [25 , 75])
                     
-                    print(f"{col}: Q3: {q1}  |  {q3}   ==   {q3 - q1}")
+                    iqr = q3 - q1
+                    
+                    outl_select = df_data[ (df_data[col] < (q1 - 1.5 * iqr) ) | 
+                                           (df_data[col] > (q3 + 1.5 * iqr) ) ]
+                    
+                    for outlier_id in outl_select['_id']:
+                        outlier_list.append(outlier_id)
+            
+            outlier_list = set(outlier_list)
+            
+            percent_remove = ( ( len(outlier_list) / len(df_data) ) * 100 )
+            
+            numb_del_percent = (
+            
+            f'About outliers removed from the original database:          \n\n'
+            f'| TOTALS                     | VALUES                         \n'
+            f'|----------------------------|--------------------------------\n'
+            f'| Number of observations     | {len(df_data)}\n'
+            f'| Number of outliers         | {len(outlier_list)}\n'
+            f'| Percentage of data removed | {percent_remove:.2f} %\n\n\n' 
+            
+            )
+            
+            with open('1_results/0_data_cleansing_report.txt', 'a') as report:
+                report.write(numb_del_percent)
+            
+            #for id_select in outlier_list:
+            #    raw.delete_one( {"_id" : id_select} )
         
         except Exception as error:
             print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")

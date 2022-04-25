@@ -16,7 +16,6 @@ Path('./1_results').mkdir(exist_ok=True)
 # data cleansing
 # ----------------------------------------------------------------------------
 db_cleansing = Data_cleansing(client, data_base, collection)
-
 db_cleansing.data_cleansing_nan()
 db_cleansing.data_cleansing_outlier()
 # ----------------------------------------------------------------------------
@@ -25,7 +24,6 @@ db_cleansing.data_cleansing_outlier()
 # ----------------------------------------------------------------------------
 data_input = Connection_mongodb(client, data_base, collection)
 data_frame = data_input.all_data()
-
 db_raw = DataFrame(data_frame)
 # ----------------------------------------------------------------------------
 
@@ -34,10 +32,8 @@ db_raw = DataFrame(data_frame)
 desc_stats = Descriptive_stats(db_raw,
                                main_variables = main_variables,
                                style_graph = style_graph,
-                               color1 = color1, 
-                               color2 = color2, 
-                               color3 = color3, 
-                               color4 = color4, 
+                               color1 = color1, color2 = color2, 
+                               color3 = color3, color4 = color4, 
                                color5 = color5)
 
 desc_stats.describe_attributes()

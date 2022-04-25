@@ -2,8 +2,17 @@ About missing data removed from the original database:
 
 | TOTALS                     | VALUES                         
 |----------------------------|--------------------------------
-| Number of observations     | 31682
-| Number of missing data     | 0
-| Percentage of data removed | 0.00
+| Number of observations     | 32581
+| Number of missing data     | 3943
+| Percentage of data removed | 12.10 %
+
+
+About outliers removed from the original database:      
+
+| TOTALS                     | VALUES                         
+|----------------------------|--------------------------------
+| Number of observations     | 32581
+| Number of outliers         | 10716
+| Percentage of data removed | 32.89 %
 
 
