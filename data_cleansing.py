@@ -114,3 +114,4 @@ class Data_cleansing:
         
         except Exception as error:
             print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")
+

@@ -1,4 +1,4 @@
-from pandas import DataFrame, read_csv
+from pandas import DataFrame, read_csv, concat, merge
 from matplotlib import pyplot as plt
 
 
@@ -19,8 +19,7 @@ class Descriptive_stats:
         color5: Setting color for graphics.
     """
 
-    def __init__(self, data_frame, **kwargs): 
-        
+    def __init__(self, data_frame, **kwargs):  
         # data
         self.data_frame = DataFrame(data_frame).drop("_id", axis=1)
         
@@ -142,14 +141,24 @@ class Descriptive_stats:
                                    "higher"]
             
             # save
-            df_stat_num.to_csv("1_results/3_descriptive_stats.txt", 
+            df_stat_num.to_csv('1_results/3_descriptive_stats.txt', 
                                sep = "|",
                                decimal = ".",
                                quotechar = '"',
                                index = False,
                                float_format = '%.2f')
+            
+            with open('1_results/3_descriptive_stats.txt', 'r') as txt2:
+                txt2 = txt2.readlines()
+                txt2.insert(1, f"{'|-' * (len(df_stat_num.columns) - 1)}")
+                txt2[1] = f'{txt2[1]}|-\n'
+            
+            with open('1_results/3_descriptive_stats.txt', 'w') as txt3: 
+                for line in txt2:
+                    txt3.write(line)
         
         except Exception as error:
             print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")
         
         return
+

@@ -19,3 +19,4 @@ client = 'mongodb://localhost:27017'
 data_base = 'aprendizado'
 collection = 'credit_risk'
 # ----------------------------------------------------------------------------
+

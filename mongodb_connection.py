@@ -39,4 +39,4 @@ class Connection_mongodb:
         selected_data = selected_data.find(filter=self.filter)
         
         return selected_data
-      
+

@@ -7,7 +7,7 @@ About missing data removed from the original database:
 | Percentage of data removed | 12.10 %
 
 
-About outliers removed from the original database:      
+About outliers removed from the original database:          
 
 | TOTALS                     | VALUES                         
 |----------------------------|--------------------------------
