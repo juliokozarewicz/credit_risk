@@ -45,6 +45,23 @@ class Descriptive_stats:
         else:
             self.main_variables = self.data_frame.columns
 
+    def sample_dataframe(self):
+        """
+        Generates a table with a sample of the data for quick visualization.
+        """
+        
+        self.data_frame.sample(10).to_csv('1_results/1_sample_dataframe.txt', 
+                                          sep='|', index=False)
+        
+        with open('1_results/1_sample_dataframe.txt', 'r') as txt:
+            txt = txt.readlines()
+            txt.insert(1, f"{'|-' * (len(self.data_frame.columns) - 1)}")
+            txt[1] = f'{txt[1]}|-\n'
+        
+        with open('1_results/1_sample_dataframe.txt', 'w') as txt2:
+            for line in txt:
+                txt2.write(line)
+
 
     def describe_attributes(self):
         """
@@ -52,11 +69,12 @@ class Descriptive_stats:
         """
         
         try:
-            col_list = ''
-            for col in self.data_frame.columns:
-                col_list = col_list + f"{col}\n"
+            col_list = f'Attribute|Description\n|-|-\n'
             
-            with open('1_results/1_columns_name.txt', 'w') as desc_stat:
+            for col in self.data_frame.columns:
+                col_list = col_list + f"|{col}|\n"
+            
+            with open('1_results/2_columns_name.txt', 'w') as desc_stat:
                 desc_stat.write(col_list)
         
         except Exception as error:
@@ -92,7 +110,7 @@ class Descriptive_stats:
                 plt.tight_layout()
                 
                 # save
-                plt.savefig(f"1_results/2_hist_{col}.jpg")
+                plt.savefig(f"1_results/3_hist_{col}.jpg")
         
         except Exception as error:
             print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")
@@ -132,28 +150,28 @@ class Descriptive_stats:
                     df_stat_num.append(stat_line)
             
             df_stat_num = DataFrame(df_stat_num)
-            df_stat_num.columns = ["attributes", 
-                                   "mean", 
-                                   "median", 
-                                   "standard_deviation", 
-                                   "variance", 
-                                   "lower", 
+            df_stat_num.columns = ["attributes",
+                                   "mean",
+                                   "median",
+                                   "std",
+                                   "variance",
+                                   "lower",
                                    "higher"]
             
             # save
-            df_stat_num.to_csv('1_results/3_descriptive_stats.txt', 
+            df_stat_num.to_csv('1_results/4_descriptive_stats.txt',
                                sep = "|",
                                decimal = ".",
                                quotechar = '"',
                                index = False,
                                float_format = '%.2f')
             
-            with open('1_results/3_descriptive_stats.txt', 'r') as txt2:
+            with open('1_results/4_descriptive_stats.txt', 'r') as txt2:
                 txt2 = txt2.readlines()
                 txt2.insert(1, f"{'|-' * (len(df_stat_num.columns) - 1)}")
                 txt2[1] = f'{txt2[1]}|-\n'
             
-            with open('1_results/3_descriptive_stats.txt', 'w') as txt3: 
+            with open('1_results/4_descriptive_stats.txt', 'w') as txt3:
                 for line in txt2:
                     txt3.write(line)
         

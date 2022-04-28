@@ -18,13 +18,15 @@ class Data_cleansing:
         self.client = MongoClient(client)
         self.data_base = data_base
         self.collection = collection
+        self.collection_clean_check = 'cleansing_status'
         self.filter = dict_filter
-
 
     def data_cleansing_nan(self):
         """
         Get data from mongodb and delete nan.
         """
+        
+        check_occurrence = self.client[self.data_base][self.collection_clean_check]
         
         try:
             raw = self.client[self.data_base][self.collection]

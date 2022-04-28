@@ -36,6 +36,7 @@ desc_stats = Descriptive_stats(db_raw,
                                color3 = color3, color4 = color4, 
                                color5 = color5)
 
+desc_stats.sample_dataframe()
 desc_stats.describe_attributes()
 desc_stats.graph_dependent_var()
 desc_stats.statistic_data()
