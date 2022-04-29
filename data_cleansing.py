@@ -18,15 +18,15 @@ class Data_cleansing:
         self.client = MongoClient(client)
         self.data_base = data_base
         self.collection = collection
-        self.collection_clean_check = 'cleansing_status'
         self.filter = dict_filter
+        self.check_occurrence = self.client[self.data_base]['cleansing_status']
 
     def data_cleansing_nan(self):
         """
         Get data from mongodb and delete nan.
         """
         
-        check_occurrence = self.client[self.data_base][self.collection_clean_check]
+        #self.check_occurrence.update_many({}, {"$set": {"missing_data": 0}}, upsert=True, array_filters=None)
         
         try:
             raw = self.client[self.data_base][self.collection]
@@ -50,9 +50,9 @@ class Data_cleansing:
             f'About missing data removed from the original database:      \n\n'
             f'| TOTALS                     | VALUES                         \n'
             f'|----------------------------|--------------------------------\n'
-            f'| Number of observations     | {len(df_data)}\n'
-            f'| Number of missing data     | {len(null_list_id)}\n'
-            f'| Percentage of data removed | {percent_remove:.2f} %\n\n\n' 
+            f'| Number of observations     | {len(df_data)}                 \n'
+            f'| Number of missing data     | {len(null_list_id)}            \n'
+            f'| Percentage of data removed | {percent_remove:.2f} %     \n\n\n' 
             
             )
             
@@ -61,6 +61,12 @@ class Data_cleansing:
             
             #for id_select in null_list_id:
             #    raw.delete_one( {"_id" : id_select} )
+            
+            self.check_occurrence.update_many({},
+                                              {"$set":
+                                              {"missing_data": 1} },
+                                              upsert=True,
+                                              array_filters=None)
         
         except Exception as error:
             print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")
@@ -102,9 +108,9 @@ class Data_cleansing:
             f'About outliers removed from the original database:          \n\n'
             f'| TOTALS                     | VALUES                         \n'
             f'|----------------------------|--------------------------------\n'
-            f'| Number of observations     | {len(df_data)}\n'
-            f'| Number of outliers         | {len(outlier_list)}\n'
-            f'| Percentage of data removed | {percent_remove:.2f} %\n\n\n' 
+            f'| Number of observations     | {len(df_data)}                 \n'
+            f'| Number of outliers         | {len(outlier_list)}            \n'
+            f'| Percentage of data removed | {percent_remove:.2f} %     \n\n\n' 
             
             )
             

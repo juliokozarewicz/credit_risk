@@ -13,18 +13,19 @@ from pathlib import Path
 Path('./1_results').mkdir(exist_ok=True)
 # ----------------------------------------------------------------------------
 
+# data base entry
+# ----------------------------------------------------------------------------
+data_input = Connection_mongodb(client, data_base, collection)
+data_frame = data_input.all_data()
+data_input.copy_db_bkp()
+db_raw = DataFrame(data_frame)
+# ----------------------------------------------------------------------------
+
 # data cleansing
 # ----------------------------------------------------------------------------
 db_cleansing = Data_cleansing(client, data_base, collection)
 db_cleansing.data_cleansing_nan()
 db_cleansing.data_cleansing_outlier()
-# ----------------------------------------------------------------------------
-
-# data base entry
-# ----------------------------------------------------------------------------
-data_input = Connection_mongodb(client, data_base, collection)
-data_frame = data_input.all_data()
-db_raw = DataFrame(data_frame)
 # ----------------------------------------------------------------------------
 
 # descriptive statistics

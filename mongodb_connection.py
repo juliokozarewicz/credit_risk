@@ -18,7 +18,6 @@ class Connection_mongodb:
         self.collection = collection
         self.filter = dict_filter
 
-
     def all_data(self):
         """
         Access to all data in the collection of interest.
@@ -40,3 +39,24 @@ class Connection_mongodb:
         
         return selected_data
 
+
+    def copy_db_bkp(self):
+        """
+        Data base backup.
+        """
+        
+        try:
+            db_copy = list(self.client[self.data_base][self.collection].find())
+            
+            collection_bkp = self.client[self.data_base][f'{self.collection}_bkp']
+            
+            collection_bkp.insert_many(db_copy)
+        
+        except Exception as error:
+            '''
+            The database is already created and the data inserted into the 
+            backup collection, this is not a real problem.
+            '''
+            pass
+        
+        return
