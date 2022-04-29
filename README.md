@@ -28,25 +28,25 @@ We cannot go directly to the model without first cleaning up the data and doing 
 
 | TOTALS                     | VALUES                         
 |----------------------------|--------------------------------
-| Number of observations     | 32581
-| Number of outliers         | 10716
-| Percentage of data removed | 32.89 %
+| Number of observations     | 28638                 
+| Number of outliers         | 9782            
+| Percentage of data removed | 34.16 % 
 
 
 ## Table with a small sample of the data:
 
 person_age|person_income|person_home_ownership|person_emp_length|loan_intent|loan_grade|loan_amnt|loan_int_rate|loan_status|loan_percent_income|cb_person_default_on_file|cb_person_cred_hist_length
 |-|-|-|-|-|-|-|-|-|-|-|-
-28|15000|RENT|1.0|PERSONAL|A|5000|7.4|1|0.33|N|9
-25|69000|RENT|0.0|HOMEIMPROVEMENT|E|15000|16.7|1|0.22|Y|3
-26|52800|RENT|4.0|VENTURE|B|8975|10.99|0|0.17|N|2
-27|72996|MORTGAGE|12.0|EDUCATION|A|9200|6.03|0|0.13|N|8
-26|26000|RENT|2.0|DEBTCONSOLIDATION|C|3825|14.27|0|0.15|N|4
-24|75200|OWN|5.0|EDUCATION|A|6500|7.14|0|0.09|N|2
-22|18000|RENT|0.0|MEDICAL|B|3600||1|0.2|N|3
-24|60000|RENT|5.0|HOMEIMPROVEMENT|D|3400||0|0.06|N|2
-25|90000|RENT|9.0|HOMEIMPROVEMENT|C|6000|13.49|0|0.07|N|4
-23|34900|MORTGAGE|2.0|MEDICAL|F|4000||1|0.11|Y|4
+22|30000|MORTGAGE|0|VENTURE|B|5000|11.48|0|0.17|N|4
+35|66000|MORTGAGE|4|VENTURE|A|3000|6.03|0|0.05|N|7
+27|58800|MORTGAGE|0|EDUCATION|C|9800|13.22|0|0.17|Y|9
+25|26004|RENT|8|DEBTCONSOLIDATION|A|7000|6.92|0|0.27|N|3
+23|69996|MORTGAGE|4|VENTURE|A|4000|8.0|0|0.06|N|2
+23|71000|MORTGAGE|7|EDUCATION|A|9600|7.51|0|0.14|N|4
+26|30000|RENT|9|VENTURE|B|2000|11.49|0|0.07|N|3
+31|60682|RENT|3|PERSONAL|A|8650|8.49|0|0.14|N|8
+33|75000|MORTGAGE|13|VENTURE|D|4000|14.11|0|0.05|N|7
+22|63000|MORTGAGE|6|EDUCATION|A|3700|5.42|0|0.06|N|4
 
 
 ## Selected attributes and a brief description:
@@ -77,14 +77,14 @@ Attribute|Description
 
 attributes|mean|median|std|variance|lower|higher
 |-|-|-|-|-|-|-
-person_age|27.73|26.00|6.35|40.30|20.00|144.00
-person_income|66074.85|55000.00|61983.12|3841907061.81|4000.00|6000000.00
-person_emp_length|4.79|4.00|4.14|17.16|0.00|123.00
-loan_amnt|9589.37|8000.00|6322.09|39968779.56|500.00|35000.00
-loan_int_rate|11.01|10.99|3.24|10.50|5.42|23.22
-loan_status|0.22|0.00|0.41|0.17|0.00|1.00
-loan_percent_income|0.17|0.15|0.11|0.01|0.00|0.83
-cb_person_cred_hist_length|5.80|4.00|4.06|16.44|2.00|30.00
+person_age|26.44|25.00|4.21|17.72|20.00|40.00
+person_income|61494.52|57000.00|26449.17|699558669.53|7200.00|140304.00
+person_emp_length|4.51|4.00|3.39|11.49|0.00|14.00
+loan_amnt|8305.20|7500.00|4744.66|22511825.60|500.00|23750.00
+loan_int_rate|10.40|10.59|2.95|8.70|5.42|21.74
+loan_status|0.00|0.00|0.00|0.00|0.00|0.00
+loan_percent_income|0.15|0.13|0.08|0.01|0.01|0.44
+cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
 
 
 

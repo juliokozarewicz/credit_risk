@@ -26,7 +26,18 @@ class Data_cleansing:
         Get data from mongodb and delete nan.
         """
         
-        #self.check_occurrence.update_many({}, {"$set": {"missing_data": 0}}, upsert=True, array_filters=None)
+        try:
+            missing_check = self.check_occurrence.find()
+            
+            if DataFrame(missing_check)['missing_data'].iloc[-1] == 1:
+                return
+        
+        except:
+            self.check_occurrence.update_many({}, 
+                                              {'$set': 
+                                              {'missing_data': 0}}, 
+                                              upsert=True, 
+                                              array_filters=None)
         
         try:
             raw = self.client[self.data_base][self.collection]
@@ -59,12 +70,12 @@ class Data_cleansing:
             with open('1_results/0_data_cleansing_report.txt', 'w') as report:
                 report.write(numb_del_percent)
             
-            #for id_select in null_list_id:
-            #    raw.delete_one( {"_id" : id_select} )
+            for id_select in null_list_id:
+                raw.delete_one( {"_id" : id_select} )
             
             self.check_occurrence.update_many({},
-                                              {"$set":
-                                              {"missing_data": 1} },
+                                              {'$set':
+                                              {'missing_data': 1} },
                                               upsert=True,
                                               array_filters=None)
         
@@ -78,6 +89,19 @@ class Data_cleansing:
         """
         Get data from mongodb and delete outliers.
         """
+        
+        try:
+            missing_check = self.check_occurrence.find()
+            
+            if DataFrame(missing_check)['outlier'].iloc[-1] == 1:
+                return
+        
+        except:
+            self.check_occurrence.update_many({},
+                                              {'$set': 
+                                              {'outlier': 0}}, 
+                                              upsert=True, 
+                                              array_filters=None)
         
         try:
             raw = self.client[self.data_base][self.collection]
@@ -117,8 +141,14 @@ class Data_cleansing:
             with open('1_results/0_data_cleansing_report.txt', 'a') as report:
                 report.write(numb_del_percent)
             
-            #for id_select in outlier_list:
-            #    raw.delete_one( {"_id" : id_select} )
+            for id_select in outlier_list:
+                raw.delete_one( {"_id" : id_select} )
+            
+            self.check_occurrence.update_many({},
+                                              {'$set':
+                                              {'outlier': 1} },
+                                              upsert=True,
+                                              array_filters=None)
         
         except Exception as error:
             print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")

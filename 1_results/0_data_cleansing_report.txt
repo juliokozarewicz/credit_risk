@@ -11,8 +11,8 @@ About outliers removed from the original database:
 
 | TOTALS                     | VALUES                         
 |----------------------------|--------------------------------
-| Number of observations     | 32581                 
-| Number of outliers         | 10716            
-| Percentage of data removed | 32.89 %     
+| Number of observations     | 28638                 
+| Number of outliers         | 9782            
+| Percentage of data removed | 34.16 %     
 
 
