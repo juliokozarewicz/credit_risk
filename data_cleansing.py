@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 from pandas import DataFrame
 from numpy import percentile
+from matplotlib import pyplot as plt
 
 
 class Data_cleansing:
@@ -20,6 +21,42 @@ class Data_cleansing:
         self.collection = collection
         self.filter = dict_filter
         self.check_occurrence = self.client[self.data_base]['cleansing_status']
+
+    def copy_db_bkp(self):
+        """
+        Data base backup.
+        """
+        
+        try:
+            bkp_check = self.check_occurrence.find()
+            
+            if DataFrame(bkp_check)['db_backup'].iloc[-1] == 1:
+                return
+        
+        except:
+            self.check_occurrence.update_many({},
+                                              {'$set': 
+                                              {'db_backup': 0}}, 
+                                              upsert=True, 
+                                              array_filters=None)
+        
+        try:
+            db_copy = list(self.client[self.data_base][self.collection].find())
+            
+            collection_bkp = self.client[self.data_base][f'{self.collection}_bkp']
+            
+            collection_bkp.insert_many(db_copy)
+            
+            self.check_occurrence.update_many({},
+                                              {'$set':
+                                              {'db_backup': 1} },
+                                              upsert=True,
+                                              array_filters=None)
+        except Exception as error:
+            print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")
+        
+        return
+
 
     def data_cleansing_nan(self):
         """
@@ -118,7 +155,8 @@ class Data_cleansing:
                     iqr = q3 - q1
                     
                     outl_select = df_data[ (df_data[col] < (q1 - 1.5 * iqr) ) | 
-                                           (df_data[col] > (q3 + 1.5 * iqr) ) ]
+                                           (df_data[col] > (q3 + 1.5 * iqr) ) |
+                                           (df_data['person_age'] > 60 ) ]
                     
                     for outlier_id in outl_select['_id']:
                         outlier_list.append(outlier_id)
@@ -149,6 +187,28 @@ class Data_cleansing:
                                               {'outlier': 1} },
                                               upsert=True,
                                               array_filters=None)
+            
+            fig, ax = plt.subplots(figsize=(12, 6), dpi=600)
+            plt.title('OUTLIERS REMOVED')
+            
+            # original data
+            df_data.plot(x='person_age',
+                         y='loan_amnt',
+                         kind='scatter',
+                         ax=ax,
+                         color='royalblue',
+                         alpha=0.15)
+            
+            # Outlier plot
+            outl_select.plot(x='person_age',
+                             y='loan_amnt',
+                             kind='scatter',
+                             ax=ax,
+                             color='crimson',
+                             alpha=0.15)
+            
+            plt.tight_layout()
+            plt.savefig('1_results/0_outliers.jpeg')
         
         except Exception as error:
             print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")

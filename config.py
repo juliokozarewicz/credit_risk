@@ -16,7 +16,7 @@ color5="red"
 # data base
 # ----------------------------------------------------------------------------
 client = 'mongodb://localhost:27017'
-data_base = 'aprendizado'
+data_base = 'credit_risk'
 collection = 'credit_risk'
 # ----------------------------------------------------------------------------
 

@@ -7,7 +7,7 @@ One way to assess risk is through rating, which in turn is a specific methodolog
 Level A (AAA, AA+, A1, A2, Aa): low risk of default; <br />
 Level B (BBB, BB+, B1, B2, Bb): average default risk; <br />
 Level C and variations: high risk of default; <br />
-Level D: in default situation.
+Level D (in default situation).
 
 ## Research objectives 
 The main objective of this study will be to develop a statistical model that makes it possible to make a prediction (not an exact prediction that is always right, that would be impossible, but a prediction that most of the time is right), through already known data about an individual, that demonstrates whether in the future that person will be able to pay their debts correctly. One or two defaults do not affect a company, however, a large number of defaults can cause a major disruption to cash flows, causing serious financial problems. In addition, a series of insights will be generated during the modeling process, on the available resources of the data, in order to assist in decision making related to other sectors.
@@ -24,6 +24,8 @@ We cannot go directly to the model without first cleaning up the data and doing 
 | Percentage of data removed | 12.10 %
 
 
+>To maintain the model's performance in terms of data integrity, rows with missing data will be deleted and not replaced with averages.
+
 ## About outliers removed from the original database:      
 
 | TOTALS                     | VALUES                         
@@ -32,6 +34,14 @@ We cannot go directly to the model without first cleaning up the data and doing 
 | Number of outliers         | 9782            
 | Percentage of data removed | 34.16 % 
 
+<p align="left">
+	<br />
+ 	<img src="/1_results/0_outliers.jpeg" width="800">
+	<br />
+</p>
+
+>* Following the same logic performed for the missing data, the outliers will also be removed.
+>* At the end of this process, the total remaining observations were 19k. This is still a good amount to generate a model.
 
 ## Table with a small sample of the data:
 
@@ -53,22 +63,23 @@ person_age|person_income|person_home_ownership|person_emp_length|loan_intent|loa
 
 Attribute|Description
 |-|-
-|person_age| Indicates the person's age in years.
-|person_income| The person's anual income.
-|person_home_ownership| The type of home that can be rented, owned, mortgaged and others.
-|person_emp_length| The person's employment length in years.
-|loan_intent| The person's intent for the loan.
-|loan_grade| The loan grade, which can be A, B, C, D, E, F, G.
-|loan_amnt| The loan amount.
-|loan_int_rate| The loan interest rate.
-|loan_status| Shows loan status (default and non-default).
-|loan_percent_income| The committed percentage of income dedicated to the mortgage.
-|cb_person_default_on_file| Person's default history.
-|cb_person_cred_hist_length| The person's credit history.
+|person_age| Indicates the person's age in years
+|person_income| The person's anual income
+|person_home_ownership| The type of home that can be rented, owned, mortgaged and others
+|person_emp_length| The person's employment length in years
+|loan_intent| The person's intent for the loan
+|loan_grade| The loan grade, which can be A, B, C, D, E, F, G
+|loan_amnt| The loan amount
+|loan_int_rate| The loan interest rate
+|loan_status| Shows loan status (default and non-default)
+|loan_percent_income| The committed percentage of income dedicated to the mortgage
+|cb_person_default_on_file| Person's default history
+|cb_person_cred_hist_length| The person's credit history
 
-<p float="left">
+## Loan Amount
+<p align="center">
 	<br />
-	<img src="/1_results/3_hist_loan_amnt.jpg" width="600" />
+ 	<img src="/1_results/3_hist_loan_amnt.jpg" width="600" />
 	<br />
 	<br />
 </p>
@@ -85,6 +96,10 @@ loan_int_rate|10.40|10.59|2.95|8.70|5.42|21.74
 loan_status|0.00|0.00|0.00|0.00|0.00|0.00
 loan_percent_income|0.15|0.13|0.08|0.01|0.01|0.44
 cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
+
+>* It can be noted that after the data cleaning process, only observations of people aged between 20 and 40 years remained. It would be interesting to have more observations from people over 40, but as the amount in this database was relatively small, they were considered outliers and were removed.
+>* $ 10,000 is the most obtained loan amount, but the average is $ 7,500.
+>* The average annual income of the people in this database is $ 57,000 per year. The person who earns the least has an income of $ 7,200 a year against $ 140,304 for the person who earns the most.
 
 
 
