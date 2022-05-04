@@ -196,7 +196,7 @@ class Data_cleansing:
                          y='loan_amnt',
                          kind='scatter',
                          ax=ax,
-                         color='royalblue',
+                         color='darkslateblue',
                          alpha=0.15)
             
             # Outlier plot
@@ -204,7 +204,7 @@ class Data_cleansing:
                              y='loan_amnt',
                              kind='scatter',
                              ax=ax,
-                             color='crimson',
+                             color='tomato',
                              alpha=0.15)
             
             plt.tight_layout()

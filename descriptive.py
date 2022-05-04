@@ -1,4 +1,4 @@
-from pandas import DataFrame, read_csv, concat, merge
+from pandas import DataFrame, read_csv
 from matplotlib import pyplot as plt
 
 
@@ -99,7 +99,7 @@ class Descriptive_stats:
                 data_frame = self.data_frame.sort_values(by=col)
                 
                 # plot
-                plot_data = data_frame[col].hist(color = self.color2,
+                plot_data = data_frame[col].hist(color = self.color1,
                                             legend = False,
                                             bins = 'auto')
                 

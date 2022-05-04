@@ -1,11 +1,12 @@
 from pandas import DataFrame
 from config import client, data_base, collection
 from config import main_variables
-from config import style_graph, color1, color2, color3, color4, color5
+from config import style_graph, palette, color1, color2, color3, color4, color5
 from mongodb_connection import Connection_mongodb
 from data_cleansing import Data_cleansing 
 from descriptive import Descriptive_stats
 from pathlib import Path
+from exploratory_analysis import Exploratory_analysis
 
 
 # make dir
@@ -43,3 +44,15 @@ desc_stats.graph_dependent_var()
 desc_stats.statistic_data()
 # ----------------------------------------------------------------------------
 
+# exploratory analysis
+# ----------------------------------------------------------------------------
+explorat_analysis = Exploratory_analysis(db_raw,
+                                         main_variables = main_variables,
+                                         style_graph = style_graph,
+                                         palette = palette,
+                                         color1 = color1, color2 = color2, 
+                                         color3 = color3, color4 = color4, 
+                                         color5 = color5)
+
+explorat_analysis.categorical_plot()
+# ----------------------------------------------------------------------------
