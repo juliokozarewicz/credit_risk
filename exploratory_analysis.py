@@ -74,9 +74,9 @@ class Exploratory_analysis:
             countplot(x=df_cat[col], 
                       order = df_cat[col].value_counts().index,
                       palette=self.palette)
-             
+            
             plt.rcParams.update({'font.size': 11})
-            plt.xlabel(f"{col.replace('_', ' ').title()}", fontsize=15)
+            plt.xlabel(f"{col.replace('_', ' ').lower()}", fontsize=15)
             plt.xticks(rotation = 8)
         
         plt.tight_layout()

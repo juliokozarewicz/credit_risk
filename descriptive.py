@@ -121,7 +121,7 @@ class Descriptive_stats:
     def statistic_data(self):
         """
         Method responsible for creating a csv file with descriptive statistics 
-        of numeric attributes.
+        of numeric features.
         """
         
         try:

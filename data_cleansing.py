@@ -2,6 +2,7 @@ from pymongo import MongoClient
 from pandas import DataFrame
 from numpy import percentile
 from matplotlib import pyplot as plt
+from seaborn import boxplot
 
 
 class Data_cleansing:
@@ -212,4 +213,50 @@ class Data_cleansing:
         
         except Exception as error:
             print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")
+        
+        return
 
+
+    def box_plot(self):
+        """
+        *****
+        """
+        
+        raw = self.client[self.data_base][self.collection]
+        df_data = DataFrame(raw.find())
+        
+        fig, ax = plt.subplots(figsize=(18, 10), dpi=300)
+        
+        num_plot = 0
+        
+        for col in df_data.columns:
+            
+            # outlier by atrtribute
+            if df_data[col].dtype != 'object':
+                
+                num_plot += 1
+                
+                plt.subplot(2, 4, num_plot)
+                
+                boxplot(x=df_data[col], color='lightsalmon')
+                
+                plt.rcParams.update({'font.size': 11})
+                plt.xlabel(f"{col.replace('_', ' ').lower()}", fontsize=15)
+            
+            plt.tight_layout()
+            
+            plt.savefig(f'1_results/0_outliers_1.jpeg')
+        
+        # loan amount x age outliers
+        fig, ax = plt.subplots(figsize=(16, 8), dpi=300)
+     
+        boxplot(x='person_age', y='loan_amnt', data=df_data, palette='flare')
+        
+        plt.rcParams.update({'font.size': 11})
+        plt.xlabel('person age', fontsize=15)
+        
+        plt.tight_layout()
+        
+        plt.savefig(f'1_results/0_outliers_2.jpeg')
+        
+        return
