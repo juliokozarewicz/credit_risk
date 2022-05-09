@@ -248,12 +248,13 @@ class Data_cleansing:
             plt.savefig(f'1_results/0_outliers_1.jpeg')
         
         # loan amount x age outliers
-        fig, ax = plt.subplots(figsize=(16, 8), dpi=300)
+        fig, ax = plt.subplots(figsize=(18, 8), dpi=300)
      
         boxplot(x='person_age', y='loan_amnt', data=df_data, palette='flare')
         
         plt.rcParams.update({'font.size': 11})
         plt.xlabel('person age', fontsize=15)
+        plt.xticks(rotation = 20)
         
         plt.tight_layout()
         
