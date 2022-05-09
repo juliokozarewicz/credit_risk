@@ -110,7 +110,7 @@ cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
 ## Hypotheses
 <p align="left">
 	<br />
- 	<img src="/1_results/5_hypotheses.jpeg" />
+ 	<img src="/1_results/5_hypotheses.jpeg" width="600" />
 	<br />
 	<br />
 </p>
@@ -118,7 +118,7 @@ cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
 ## Categorical attributes
 <p align="left">
 	<br />
- 	<img src="/1_results/5_categorical_attributes.jpeg" />
+ 	<img src="/1_results/6_categorical_attributes.jpeg" />
 	<br />
 	<br />
 </p>
