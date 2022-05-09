@@ -110,7 +110,7 @@ cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
 ## Some assumptions about the data
 <p align="left">
 	<br />
- 	<img src="/1_results/5_hypotheses.jpeg" width="800" />
+ 	<img src="/1_results/5_hypotheses.jpeg" width="700" />
 	<br />
 	<br />
 </p>
