@@ -81,4 +81,4 @@ class Exploratory_analysis:
         
         plt.tight_layout()
         
-        plt.savefig(f'1_results/5_categorical_attributes.jpeg')
+        plt.savefig(f'1_results/6_categorical_attributes.jpeg')

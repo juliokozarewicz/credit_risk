@@ -107,6 +107,14 @@ cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
 >* $ 10,000 is the most obtained loan amount, but the average is $ 7,500.
 >* The average annual income of the people in this database is $ 57,000 per year. The person who earns the least has an income of $ 7,200 a year against $ 140,304 for the person who earns the most.
 
+## Hypotheses
+<p align="left">
+	<br />
+ 	<img src="/1_results/5_hypotheses.jpeg" />
+	<br />
+	<br />
+</p>
+
 ## Categorical attributes
 <p align="left">
 	<br />
