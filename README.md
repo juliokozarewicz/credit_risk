@@ -123,7 +123,7 @@ cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
 	<br />
 </p>
 
-## Numerical variables
+## Numeric variables
 <p align="left">
 	<br />
  	<img src="/1_results/7_numeric_attributes.jpeg" />
