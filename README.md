@@ -107,14 +107,6 @@ cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
 >* $ 10,000 is the most obtained loan amount, but the average is $ 7,500.
 >* The average annual income of the people in this database is $ 57,000 per year. The person who earns the least has an income of $ 7,200 a year against $ 140,304 for the person who earns the most.
 
-## Some assumptions about the data
-<p align="left">
-	<br />
- 	<img src="/1_results/5_hypotheses.jpeg" width="700" />
-	<br />
-	<br />
-</p>
-
 ## Categorical attributes
 <p align="left">
 	<br />
@@ -123,6 +115,10 @@ cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
 	<br />
 </p>
 
+>* The largest number of loans are for people who live on rent
+>* The largest number of loans is related to education, followed by venture, medical, personal, debt consolidation and finally home improvement
+>* The amount of defaults represents about 16.25%
+
 ## Numeric variables
 <p align="left">
 	<br />
@@ -130,5 +126,19 @@ cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
 	<br />
 	<br />
 </p>
+
+>* People aged between 22 and 24 years account for about 37.79% of the amount of loans requested
+>* People who have an annual income between 40 thousand dollars and 60 thousand dollars represent about 35.04% of the data.
+>* Loan amounts that are between 4,000 and 10,000 dollars represent 55.6% of the data
+
+## Some assumptions about the data
+<p align="left">
+	<br />
+ 	<img src="/1_results/5_hypotheses.jpeg" width="700" />
+	<br />
+	<br />
+</p>
+
+
 
 Under development...

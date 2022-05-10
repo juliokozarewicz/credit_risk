@@ -113,7 +113,7 @@ class Exploratory_analysis:
             plt.rcParams.update({'font.size': 11})
             plt.xlabel(f"{col.replace('_', ' ').lower()}", fontsize=15)
             plt.xticks(rotation = 8)
-        
-        plt.tight_layout()
-        
+            plt.ticklabel_format(style='plain')
+
+        plt.tight_layout() 
         plt.savefig(f'1_results/7_numeric_attributes.jpeg')
