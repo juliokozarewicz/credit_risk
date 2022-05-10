@@ -100,8 +100,9 @@ class Descriptive_stats:
                 
                 # plot
                 plot_data = data_frame[col].hist(color = self.color1,
-                                            legend = False,
-                                            bins = 'auto')
+                                                 ec=self.color3,
+                                                 legend = False,
+                                                 bins = 'auto')
                 
                 # layout
                 plt.title(f"{col.replace('_', ' ').upper()}")

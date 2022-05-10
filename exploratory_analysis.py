@@ -82,3 +82,38 @@ class Exploratory_analysis:
         plt.tight_layout()
         
         plt.savefig(f'1_results/6_categorical_attributes.jpeg')
+        
+        return
+
+
+    def numeric_plot(self):
+        """
+        Plotting the information of the numeric variables.
+        """
+        
+        df_numeric = DataFrame(self.data_frame).drop("_id", axis=1)
+        df_numb = df_numeric.select_dtypes(include=['float64', 'int64'])
+        
+        fig, ax = plt.subplots(figsize=(18, 10), dpi=600)
+        
+        numb_plot = 0
+        
+        for col in df_numb:
+            # count
+            numb_plot += 1
+            
+            # plot
+            plt.subplot(2, 4, numb_plot)
+            
+            plt.hist(x=df_numb[col],
+                     density=True,
+                     color=self.color1,
+                     ec=self.color3) 
+            
+            plt.rcParams.update({'font.size': 11})
+            plt.xlabel(f"{col.replace('_', ' ').lower()}", fontsize=15)
+            plt.xticks(rotation = 8)
+        
+        plt.tight_layout()
+        
+        plt.savefig(f'1_results/7_numeric_attributes.jpeg')

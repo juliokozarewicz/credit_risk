@@ -197,7 +197,7 @@ class Data_cleansing:
                          y='loan_amnt',
                          kind='scatter',
                          ax=ax,
-                         color='darkslateblue',
+                         color='slateblue',
                          alpha=0.15)
             
             # Outlier plot
@@ -221,6 +221,19 @@ class Data_cleansing:
         """
         *****
         """
+        
+        try:
+            missing_check = self.check_occurrence.find()
+            
+            if DataFrame(missing_check)['outlier'].iloc[-1] == 1:
+                return
+        
+        except:
+            self.check_occurrence.update_many({},
+                                              {'$set': 
+                                              {'outlier': 0}}, 
+                                              upsert=True, 
+                                              array_filters=None)
         
         raw = self.client[self.data_base][self.collection]
         df_data = DataFrame(raw.find())

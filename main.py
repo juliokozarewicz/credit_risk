@@ -56,4 +56,5 @@ explorat_analysis = Exploratory_analysis(db_raw,
                                          color5 = color5)
 
 explorat_analysis.categorical_plot()
+explorat_analysis.numeric_plot()
 # ----------------------------------------------------------------------------

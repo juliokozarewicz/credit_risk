@@ -7,9 +7,9 @@ main_variables = ["loan_intent", "loan_amnt"]
 # ----------------------------------------------------------------------------
 style_graph="seaborn-dark"
 palette="flare"
-color1="darkslateblue" 
+color1="slateblue" 
 color2="tomato"
-color3="darkorange"
+color3="darkslateblue"
 color4="royalblue"
 color5="crimson"
 # ----------------------------------------------------------------------------
