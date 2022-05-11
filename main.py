@@ -16,7 +16,14 @@ Path('./1_results').mkdir(exist_ok=True)
 
 # data cleansing
 # ----------------------------------------------------------------------------
-db_cleansing = Data_cleansing(client, data_base, collection)
+db_cleansing = Data_cleansing(client,
+                              data_base,
+                              collection,
+                              style_graph = style_graph,
+                              palette = palette,
+                              color1 = color1, color2 = color2, 
+                              color3 = color3, color4 = color4, 
+                              color5 = color5)
 db_cleansing.copy_db_bkp()
 db_cleansing.data_cleansing_nan()
 db_cleansing.box_plot()

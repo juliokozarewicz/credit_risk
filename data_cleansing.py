@@ -14,14 +14,38 @@ class Data_cleansing:
                                data_base = Database name,
                                collection = Collection name,
                                filter = Data filter)
+
+    Optional parameters:
+        style_graph: Name with chart layout.
+        pallete: Color pallete.
+        color1: Setting color for graphics.
+        color2: Setting color for graphics.
+        color3: Setting color for graphics.
+        color4: Setting color for graphics.
+        color5: Setting color for graphics.
     """
 
-    def __init__(self, client, data_base, collection, dict_filter={}):
+    def __init__(self, client, data_base, collection, dict_filter={}, **kwargs):
+        style_graph = kwargs.get('style_graph')
+        palette = kwargs.get('palette')
+        color1 = kwargs.get('color1')
+        color2 = kwargs.get('color2')
+        color3 = kwargs.get('color3')
+        color4 = kwargs.get('color4')
+        color5 = kwargs.get('color5')
+        
         self.client = MongoClient(client)
         self.data_base = data_base
         self.collection = collection
         self.filter = dict_filter
         self.check_occurrence = self.client[self.data_base]['cleansing_status']
+        self.style_graph = "seaborn" if not style_graph else style_graph
+        self.palette = "flare" if not palette else palette
+        self.color1 = "royalblue" if not color1 else color1
+        self.color2 = "crimson" if not color2 else color2
+        self.color3 = "darkorange" if not color3 else color3
+        self.color4 = "black" if not color4 else color4
+        self.color5 = "red" if not color5 else color5
 
     def copy_db_bkp(self):
         """
@@ -193,6 +217,8 @@ class Data_cleansing:
             plt.title('OUTLIERS REMOVED')
             
             # original data
+            plt.style.use(self.style_graph)
+            
             df_data.plot(x='person_age',
                          y='loan_amnt',
                          kind='scatter',
@@ -244,6 +270,8 @@ class Data_cleansing:
         
         for col in df_data.columns:
             
+            plt.style.use(self.style_graph)
+            
             # outlier by atrtribute
             if df_data[col].dtype != 'object':
                 
@@ -251,7 +279,7 @@ class Data_cleansing:
                 
                 plt.subplot(2, 4, num_plot)
                 
-                boxplot(x=df_data[col], color='lightsalmon')
+                boxplot(x=df_data[col], color=self.color1)
                 
                 plt.rcParams.update({'font.size': 11})
                 plt.xlabel(f"{col.replace('_', ' ').lower()}", fontsize=15)
@@ -263,7 +291,7 @@ class Data_cleansing:
         # loan amount x age outliers
         fig, ax = plt.subplots(figsize=(18, 8), dpi=300)
      
-        boxplot(x='person_age', y='loan_amnt', data=df_data, palette='flare')
+        boxplot(x='person_age', y='loan_amnt', data=df_data, palette=self.palette)
         
         plt.rcParams.update({'font.size': 11})
         plt.xlabel('person age', fontsize=15)

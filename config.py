@@ -6,7 +6,7 @@ main_variables = ["loan_intent", "loan_amnt"]
 # plot
 # ----------------------------------------------------------------------------
 style_graph="seaborn-dark"
-palette="flare"
+palette="pastel"
 color1="slateblue" 
 color2="tomato"
 color3="darkslateblue"
