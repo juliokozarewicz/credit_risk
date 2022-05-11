@@ -34,7 +34,9 @@ We cannot go directly to the model without first cleaning up the data and doing 
 <p align="left">
 	<br />
 	<img src="/1_results/0_outliers_1.jpeg">
+	<br />
 	<img src="/1_results/0_outliers_2.jpeg">
+	<br />
  	<img src="/1_results/0_outliers.jpeg">
 	<br />
 	<br />
@@ -131,6 +133,14 @@ cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
 >* People who have an annual income between 40 thousand dollars and 60 thousand dollars represent about 35.04% of the data.
 >* Loan amounts that are between 4,000 and 10,000 dollars represent 55.6% of the data
 
+## Information on the correlation between the variables
+<p align="left">
+	<br />
+ 	<img src="/1_results/8_correlation.jpeg" />
+	<br />
+	<br />
+</p>
+
 ## Some assumptions about the data
 <p align="left">
 	<br />
@@ -138,6 +148,8 @@ cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
 	<br />
 	<br />
 </p>
+
+
 
 
 

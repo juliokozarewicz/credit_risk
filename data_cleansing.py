@@ -245,7 +245,7 @@ class Data_cleansing:
 
     def box_plot(self):
         """
-        *****
+        Boxplot chart.
         """
         
         try:

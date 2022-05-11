@@ -64,4 +64,5 @@ explorat_analysis = Exploratory_analysis(db_raw,
 
 explorat_analysis.categorical_plot()
 explorat_analysis.numeric_plot()
+explorat_analysis.correlation()
 # ----------------------------------------------------------------------------

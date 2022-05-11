@@ -1,5 +1,5 @@
 from pandas import DataFrame, read_csv
-from seaborn import histplot, countplot
+from seaborn import countplot, heatmap
 from matplotlib import pyplot as plt
 
 
@@ -99,6 +99,7 @@ class Exploratory_analysis:
         numb_plot = 0
         
         for col in df_numb:
+            
             # count
             numb_plot += 1
             
@@ -114,6 +115,28 @@ class Exploratory_analysis:
             plt.xlabel(f"{col.replace('_', ' ').lower()}", fontsize=15)
             plt.xticks(rotation = 8)
             plt.ticklabel_format(style='plain')
-
+        
         plt.tight_layout() 
         plt.savefig(f'1_results/7_numeric_attributes.jpeg')
+        
+        return
+
+
+    def correlation(self):
+        """
+        *****
+        """
+        
+        df_correl = DataFrame(self.data_frame).drop(['_id', 'loan_status'], axis=1).corr()
+        
+        plt.style.use(self.style_graph)
+        fig, ax = plt.subplots(figsize=(18, 10), dpi=600)
+        
+        heatmap(df_correl, annot=True, cmap='Pastel2', linewidths=2)
+        
+        plt.rcParams.update({'font.size': 11})
+        plt.xticks(rotation = 30) 
+        plt.tight_layout() 
+        plt.savefig(f'1_results/8_correlation.jpeg')
+        
+        return
