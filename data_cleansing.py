@@ -174,7 +174,8 @@ class Data_cleansing:
             
             for col in df_data.columns:
                 
-                if df_data[col].dtype != 'object':
+                if df_data[col].dtype != 'object' & df_data[col].name != 'loan_status':
+                    
                     q1, q3 = percentile(df_data[col], [25 , 75])
                     
                     iqr = q3 - q1

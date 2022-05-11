@@ -124,10 +124,10 @@ class Exploratory_analysis:
 
     def correlation(self):
         """
-        *****
+        Information on the correlation between the variables.
         """
         
-        df_correl = DataFrame(self.data_frame).drop(['_id', 'loan_status'], axis=1).corr()
+        df_correl = DataFrame(self.data_frame).drop(['_id'], axis=1).corr()
         
         plt.style.use(self.style_graph)
         fig, ax = plt.subplots(figsize=(18, 10), dpi=600)
@@ -138,5 +138,23 @@ class Exploratory_analysis:
         plt.xticks(rotation = 30) 
         plt.tight_layout() 
         plt.savefig(f'1_results/8_correlation.jpeg')
+        
+        return
+
+
+    def insights(self):
+        """
+        *****
+        """
+
+        attributes_insig = ['loan_status',
+                            'loan_grade',
+                            'loan_intent']
+        
+        df_insight = DataFrame(self.data_frame).drop(['_id'], axis=1)
+        
+        for col in attributes_insig:
+            df_select = df_insight.groupby(by=col).median()
+            print(df_select)
         
         return

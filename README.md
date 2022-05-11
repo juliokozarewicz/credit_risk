@@ -22,10 +22,9 @@ We cannot go directly to the model without first cleaning up the data and doing 
 
 | TOTALS                     | VALUES                         
 |----------------------------|--------------------------------
-| Number of observations     | 32581
-| Number of missing data     | 3943
-| Percentage of data removed | 12.10 %
-
+| Number of observations     | 32581                 
+| Number of missing data     | 3943            
+| Percentage of data removed | 12.10 % 
 
 >To maintain the model's performance in terms of data integrity, rows with missing data will be deleted and not replaced with averages.
 
@@ -35,7 +34,9 @@ We cannot go directly to the model without first cleaning up the data and doing 
 	<br />
 	<img src="/1_results/0_outliers_1.jpeg">
 	<br />
+	<br />
 	<img src="/1_results/0_outliers_2.jpeg">
+	<br />
 	<br />
  	<img src="/1_results/0_outliers.jpeg">
 	<br />
@@ -45,27 +46,26 @@ We cannot go directly to the model without first cleaning up the data and doing 
 | TOTALS                     | VALUES                         
 |----------------------------|--------------------------------
 | Number of observations     | 28638                 
-| Number of outliers         | 9782            
-| Percentage of data removed | 34.16 %
+| Number of outliers         | 4888            
+| Percentage of data removed | 17.07 %
 
 >* Following the same logic performed for the missing data, the outliers will also be removed.
->* At the end of this process, the total remaining observations were 19k. This is still a good amount to generate a model.
+>* At the end of this process, the total remaining observations were 23k. This is still a good amount to generate a model.
 
 ## Table with a small sample of the data:
 
 person_age|person_income|person_home_ownership|person_emp_length|loan_intent|loan_grade|loan_amnt|loan_int_rate|loan_status|loan_percent_income|cb_person_default_on_file|cb_person_cred_hist_length
 |-|-|-|-|-|-|-|-|-|-|-|-
-22|30000|MORTGAGE|0|VENTURE|B|5000|11.48|0|0.17|N|4
-35|66000|MORTGAGE|4|VENTURE|A|3000|6.03|0|0.05|N|7
-27|58800|MORTGAGE|0|EDUCATION|C|9800|13.22|0|0.17|Y|9
-25|26004|RENT|8|DEBTCONSOLIDATION|A|7000|6.92|0|0.27|N|3
-23|69996|MORTGAGE|4|VENTURE|A|4000|8.0|0|0.06|N|2
-23|71000|MORTGAGE|7|EDUCATION|A|9600|7.51|0|0.14|N|4
-26|30000|RENT|9|VENTURE|B|2000|11.49|0|0.07|N|3
-31|60682|RENT|3|PERSONAL|A|8650|8.49|0|0.14|N|8
-33|75000|MORTGAGE|13|VENTURE|D|4000|14.11|0|0.05|N|7
-22|63000|MORTGAGE|6|EDUCATION|A|3700|5.42|0|0.06|N|4
-
+23|36000|RENT|0|VENTURE|C|11000|13.11|1|0.31|Y|3
+28|60000|OWN|1|HOMEIMPROVEMENT|D|22000|14.09|0|0.37|Y|8
+22|74000|RENT|4|VENTURE|A|5050|5.42|0|0.07|N|4
+25|33000|RENT|5|MEDICAL|A|9000|7.14|0|0.27|N|2
+23|56160|MORTGAGE|2|PERSONAL|B|3050|10.59|0|0.05|N|2
+21|72000|MORTGAGE|5|DEBTCONSOLIDATION|A|2000|6.54|0|0.03|N|2
+37|46000|MORTGAGE|9|EDUCATION|B|5000|10.75|0|0.11|N|14
+23|31200|RENT|0|PERSONAL|C|3200|13.49|0|0.1|Y|2
+25|98000|OWN|0|PERSONAL|A|2000|7.37|0|0.02|N|2
+28|66300|MORTGAGE|11|MEDICAL|D|12000|14.11|1|0.15|N|6
 
 ## Selected attributes and a brief description:
 
@@ -96,18 +96,18 @@ Attribute|Description
 
 attributes|mean|median|std|variance|lower|higher
 |-|-|-|-|-|-|-
-person_age|26.44|25.00|4.21|17.72|20.00|40.00
-person_income|61494.52|57000.00|26449.17|699558669.53|7200.00|140304.00
-person_emp_length|4.51|4.00|3.39|11.49|0.00|14.00
-loan_amnt|8305.20|7500.00|4744.66|22511825.60|500.00|23750.00
-loan_int_rate|10.40|10.59|2.95|8.70|5.42|21.74
-loan_status|0.00|0.00|0.00|0.00|0.00|0.00
-loan_percent_income|0.15|0.13|0.08|0.01|0.01|0.44
-cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
+person_age|26.39|25.00|4.21|17.71|20.00|40.00
+person_income|57977.82|53597.50|26554.38|705135102.08|4080.00|140304.00
+person_emp_length|4.35|4.00|3.37|11.39|0.00|14.00
+loan_amnt|8485.20|7500.00|4895.01|23961130.71|500.00|23750.00
+loan_int_rate|10.95|10.99|3.19|10.18|5.42|21.74
+loan_status|0.21|0.00|0.40|0.16|0.00|1.00
+loan_percent_income|0.16|0.14|0.09|0.01|0.01|0.44
+cb_person_cred_hist_length|5.00|4.00|2.96|8.79|2.00|15.00
 
 >* It can be noted that after the data cleaning process, only observations of people aged between 20 and 40 years remained. It would be interesting to have more observations from people over 40, but as the amount in this database was relatively small, they were considered outliers and were removed.
 >* $ 10,000 is the most obtained loan amount, but the average is $ 7,500.
->* The average annual income of the people in this database is $ 57,000 per year. The person who earns the least has an income of $ 7,200 a year against $ 140,304 for the person who earns the most.
+>* The average annual income of the people in this database is $ 57,978 per year. The person who earns the least has an income of $ 4,080 a year against $ 140,304 for the person who earns the most.
 
 ## Categorical attributes
 <p align="left">
@@ -141,6 +141,9 @@ cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
 	<br />
 </p>
 
+>* It is possible to observe that there is a considerable positive correlation between age and credit history
+>* It is also possible to notice that there is a positive correlation between loan amount and the percentage of income committed to the loan
+
 ## Some assumptions about the data
 <p align="left">
 	<br />
@@ -148,8 +151,6 @@ cb_person_cred_hist_length|5.02|4.00|2.97|8.80|2.00|15.00
 	<br />
 	<br />
 </p>
-
-
 
 
 
