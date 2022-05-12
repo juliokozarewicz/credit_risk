@@ -297,9 +297,7 @@ class Data_cleansing:
         plt.rcParams.update({'font.size': 11})
         plt.xlabel('person age', fontsize=15)
         plt.xticks(rotation = 20)
-        
         plt.tight_layout()
-        
         plt.savefig(f'1_results/0_outliers_2.jpeg')
         
         return

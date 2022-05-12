@@ -1,4 +1,4 @@
-from pandas import DataFrame, read_csv
+from pandas import DataFrame, read_csv, crosstab
 from seaborn import countplot, heatmap
 from matplotlib import pyplot as plt
 
@@ -144,17 +144,48 @@ class Exploratory_analysis:
 
     def insights(self):
         """
-        *****
+        Understanding of specific causes and effects within the context of the data.
         """
-
-        attributes_insig = ['loan_status',
-                            'loan_grade',
-                            'loan_intent']
         
         df_insight = DataFrame(self.data_frame).drop(['_id'], axis=1)
         
-        for col in attributes_insig:
-            df_select = df_insight.groupby(by=col).median()
-            print(df_select)
+        df_select = df_insight.groupby(by='loan_grade').median()
+        
+        df_select.to_csv('1_results/9_insights.txt', sep='|', index=False)
+        
+        with open('1_results/9_insights.txt', 'r') as txt:
+            txt = txt.readlines()
+            txt.insert(1, f"{'|-' * (len(df_select.columns) - 1)}")
+            txt[1] = f'{txt[1]}|-\n'
+        
+        with open('1_results/9_insights.txt', 'w') as txt2:
+            for line in txt:
+                txt2.write(line)
+        
+        loan_grade = crosstab(df_insight['loan_grade'],
+                              df_insight['loan_status'],
+                              margins=True)
+        
+        loan_grade.columns = ['not_default', 'default', 'all']
+        
+        percent_def = (loan_grade['default'] / loan_grade['all']) * 100
+        
+        percent_def = percent_def.map(lambda x: f'{x:.2f} %')
+        
+        loan_grade['percent_default'] = percent_def
+        
+        loan_grade.to_csv('1_results/9_insights_2.txt', 
+                          sep='|', 
+                          index='loan_grade',
+                          float_format = '%.2f')
+        
+        with open('1_results/9_insights_2.txt', 'r') as txt:
+            txt = txt.readlines()
+            txt.insert(1, f"{'|-' * (len(loan_grade.columns))}")
+            txt[1] = f'{txt[1]}|-\n'
+        
+        with open('1_results/9_insights_2.txt', 'w') as txt2:
+            for line in txt:
+                txt2.write(line)
         
         return

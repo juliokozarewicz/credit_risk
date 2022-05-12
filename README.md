@@ -144,6 +144,30 @@ cb_person_cred_hist_length|5.00|4.00|2.96|8.79|2.00|15.00
 >* It is possible to observe that there is a considerable positive correlation between age and credit history
 >* It is also possible to notice that there is a positive correlation between loan amount and the percentage of income committed to the loan
 
+## A little more information about defaulters
+For this database, it is interesting to generate some information only about the defaulters, a table will be set up where it will show notions about the average of the attributes and another table that will show the percentage of defaulters per loan grade.
+
+person_age|person_income|person_emp_length|loan_amnt|loan_int_rate|loan_status|loan_percent_income|cb_person_cred_hist_length
+|-|-|-|-|-|-|-|-
+25.0|55698.0|4.0|7000.0|7.49|0.0|0.13|4.0
+25.0|53000.0|4.0|7800.0|10.99|0.0|0.15|4.0
+25.0|51000.0|3.0|7500.0|13.48|0.0|0.15|4.0
+25.0|49000.0|4.0|8000.0|15.31|1.0|0.17|4.0
+25.0|54000.0|3.0|10000.0|16.7|1.0|0.18|4.0
+25.0|56500.0|2.0|10000.0|18.53|1.0|0.2|4.0
+26.5|49000.0|4.0|13250.0|20.11|1.0|0.27|4.5
+
+loan_grade|not_default|default|all|percent_default
+|-|-|-|-|-
+A|7305|727|8032|9.05 %
+B|6357|1131|7488|15.10 %
+C|3909|969|4878|19.86 %
+D|1024|1516|2540|59.69 %
+E|229|431|660|65.30 %
+F|31|93|124|75.00 %
+G|1|27|28|96.43 %
+All|18856|4894|23750|20.61 %
+
 ## Some assumptions about the data
 <p align="left">
 	<br />
