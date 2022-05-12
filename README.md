@@ -54,8 +54,6 @@ We cannot go directly to the model without first cleaning up the data and doing 
 >* Following the same logic performed for the missing data, the outliers will also be removed.
 >* At the end of this process, the total remaining observations were 23k. This is still a good amount to generate a model.
 
-<br />
-
 ## Table with a small sample of the data:
 
 person_age|person_income|person_home_ownership|person_emp_length|loan_intent|loan_grade|loan_amnt|loan_int_rate|loan_status|loan_percent_income|cb_person_default_on_file|cb_person_cred_hist_length
@@ -149,6 +147,8 @@ cb_person_cred_hist_length|5.00|4.00|2.96|8.79|2.00|15.00
 
 >* It is possible to observe that there is a considerable positive correlation between age and credit history
 >* It is also possible to notice that there is a positive correlation between loan amount and the percentage of income committed to the loan
+
+<br />
 
 ## A little more information about defaulters
 For this database, it is interesting to generate some information only about the defaulters, a table will be set up where it will show notions about the average of the attributes and another table that will show the percentage of defaulters per loan grade.
