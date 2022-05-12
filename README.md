@@ -147,6 +147,8 @@ cb_person_cred_hist_length|5.00|4.00|2.96|8.79|2.00|15.00
 ## A little more information about defaulters
 For this database, it is interesting to generate some information only about the defaulters, a table will be set up where it will show notions about the average of the attributes and another table that will show the percentage of defaulters per loan grade.
 
+<br />
+
 loan_grade|person_income|loan_amnt|loan_int_rate|loan_status|loan_percent_income
 |-|-|-|-|-|-
 A|55698.0|7000.0|7.49|0.0|0.13
@@ -162,6 +164,8 @@ G|49000.0|13250.0|20.11|1.0|0.27
 >* The greater the commitment of income to the loan, the greater the chances of default
 >* It is possible to notice the association between risk x return by noting that the higher the loan rate, the greater the loan amount and the greater the chance of default
 
+<br />
+
 loan_grade|not_default|default|all|percent_default
 |-|-|-|-|-
 A|7305|727|8032|9.05 %
@@ -175,6 +179,8 @@ All|18856|4894|23750|20.61 %
 
 >* The default rate increases as the loan grade decreases
 >* People with loan grade 'F' and 'G' have a high chance of defaulting
+
+<br />
 
 ## Some assumptions about the data
 <p align="left">
