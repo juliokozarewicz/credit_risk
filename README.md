@@ -119,7 +119,7 @@ cb_person_cred_hist_length|5.00|4.00|2.96|8.79|2.00|15.00
 
 >* The largest number of loans are for people who live on rent
 >* The largest number of loans is related to education, followed by venture, medical, personal, debt consolidation and finally home improvement
->* The amount of defaults represents about 16.25%
+>* The amount of defaults represents about 20.61%
 
 ## Numeric variables
 <p align="left">
@@ -147,15 +147,20 @@ cb_person_cred_hist_length|5.00|4.00|2.96|8.79|2.00|15.00
 ## A little more information about defaulters
 For this database, it is interesting to generate some information only about the defaulters, a table will be set up where it will show notions about the average of the attributes and another table that will show the percentage of defaulters per loan grade.
 
-person_age|person_income|person_emp_length|loan_amnt|loan_int_rate|loan_status|loan_percent_income|cb_person_cred_hist_length
-|-|-|-|-|-|-|-|-
-25.0|55698.0|4.0|7000.0|7.49|0.0|0.13|4.0
-25.0|53000.0|4.0|7800.0|10.99|0.0|0.15|4.0
-25.0|51000.0|3.0|7500.0|13.48|0.0|0.15|4.0
-25.0|49000.0|4.0|8000.0|15.31|1.0|0.17|4.0
-25.0|54000.0|3.0|10000.0|16.7|1.0|0.18|4.0
-25.0|56500.0|2.0|10000.0|18.53|1.0|0.2|4.0
-26.5|49000.0|4.0|13250.0|20.11|1.0|0.27|4.5
+loan_grade|person_income|loan_amnt|loan_int_rate|loan_status|loan_percent_income
+|-|-|-|-|-
+A|55698.0|7000.0|7.49|0.0|0.13
+B|53000.0|7800.0|10.99|0.0|0.15
+C|51000.0|7500.0|13.48|0.0|0.15
+D|49000.0|8000.0|15.31|1.0|0.17
+E|54000.0|10000.0|16.7|1.0|0.18
+F|56500.0|10000.0|18.53|1.0|0.2
+G|49000.0|13250.0|20.11|1.0|0.27
+
+>* Loans become riskier for people who have a loan grade below 'D', since from then on the median indicates that the majority are in default
+>* The lower the loan amount, the lower the default rate
+>* The greater the commitment of income to the loan, the greater the chances of default
+>* It is possible to notice the association between risk x return by noting that the higher the loan rate, the greater the loan amount and the greater the chance of default
 
 loan_grade|not_default|default|all|percent_default
 |-|-|-|-|-
@@ -167,6 +172,9 @@ E|229|431|660|65.30 %
 F|31|93|124|75.00 %
 G|1|27|28|96.43 %
 All|18856|4894|23750|20.61 %
+
+>* The default rate increases as the loan grade decreases
+>* People with loan grade 'F' and 'G' have a high chance of defaulting
 
 ## Some assumptions about the data
 <p align="left">

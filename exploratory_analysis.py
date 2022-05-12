@@ -151,7 +151,12 @@ class Exploratory_analysis:
         
         df_select = df_insight.groupby(by='loan_grade').median()
         
-        df_select.to_csv('1_results/9_insights.txt', sep='|', index=False)
+        lis_col_select = ['person_income', 'loan_amnt', 'loan_int_rate',
+                                   'loan_status', 'loan_percent_income']
+        
+        df_select = df_select[lis_col_select]
+        
+        df_select.to_csv('1_results/9_insights.txt', sep='|')
         
         with open('1_results/9_insights.txt', 'r') as txt:
             txt = txt.readlines()
