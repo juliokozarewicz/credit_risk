@@ -15,6 +15,8 @@ How to reduce the losses incurred by providing cash loans?
 ## Research objectives 
 The main objective of this study will be to develop a statistical model that makes it possible to make a prediction (not an exact prediction that is always right, that would be impossible, but a prediction that most of the time is right), through already known data about an individual, that demonstrates whether in the future that person will be able to pay their debts correctly. One or two defaults do not affect a company, however, a large number of defaults can cause a major disruption to cash flows, causing serious financial problems. In addition, a series of insights will be generated during the modeling process, on the available resources of the data, in order to assist in decision making related to other sectors.
 
+<br />
+
 # MODELING PROCESS
 We cannot go directly to the model without first cleaning up the data and doing a pre-analysis. First, an analysis will be carried out and verification of missing data in the database, then a treatment and removal of outliers will be carried out and finally the generation of some graphs and insights.
 
@@ -51,6 +53,8 @@ We cannot go directly to the model without first cleaning up the data and doing 
 
 >* Following the same logic performed for the missing data, the outliers will also be removed.
 >* At the end of this process, the total remaining observations were 23k. This is still a good amount to generate a model.
+
+<br />
 
 ## Table with a small sample of the data:
 
@@ -132,6 +136,8 @@ cb_person_cred_hist_length|5.00|4.00|2.96|8.79|2.00|15.00
 >* People aged between 22 and 24 years account for about 37.79% of the amount of loans requested
 >* People who have an annual income between 40 thousand dollars and 60 thousand dollars represent about 35.04% of the data.
 >* Loan amounts that are between 4,000 and 10,000 dollars represent 55.6% of the data
+
+<br />
 
 ## Information on the correlation between the variables
 <p align="left">
