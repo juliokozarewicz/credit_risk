@@ -148,7 +148,7 @@ cb_person_cred_hist_length|5.00|4.00|2.96|8.79|2.00|15.00
 For this database, it is interesting to generate some information only about the defaulters, a table will be set up where it will show notions about the average of the attributes and another table that will show the percentage of defaulters per loan grade.
 
 loan_grade|person_income|loan_amnt|loan_int_rate|loan_status|loan_percent_income
-|-|-|-|-|-
+|-|-|-|-|-|-
 A|55698.0|7000.0|7.49|0.0|0.13
 B|53000.0|7800.0|10.99|0.0|0.15
 C|51000.0|7500.0|13.48|0.0|0.15

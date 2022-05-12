@@ -160,7 +160,7 @@ class Exploratory_analysis:
         
         with open('1_results/9_insights.txt', 'r') as txt:
             txt = txt.readlines()
-            txt.insert(1, f"{'|-' * (len(df_select.columns) - 1)}")
+            txt.insert(1, f"{'|-' * (len(df_select.columns))}")
             txt[1] = f'{txt[1]}|-\n'
         
         with open('1_results/9_insights.txt', 'w') as txt2:
