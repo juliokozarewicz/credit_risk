@@ -184,7 +184,7 @@ G|1|27|28|96.43 %
 All|18856|4894|23750|20.61 %
 
 >* The default rate increases as the loan grade decreases
->* People with loan grade 'F' and 'G' have a high chance of defaulting
+>* People with loan grade 'D', 'E', 'F' and 'G' have a high chance of defaulting
 
 <br />
 
@@ -195,6 +195,62 @@ All|18856|4894|23750|20.61 %
 	<br />
 	<br />
 </p>
+
+**HYPOTHESIS 1 - Younger people have a higher number of default**
+<p align="left">
+	<br />
+ 	<img src="/1_results/10_h1.jpeg" />
+	<br />
+	<br />
+</p>
+
+>* It is possible to observe that younger people actually have a greater number of defaults, however, this is an analysis taking into account only the absolute amount. The next hypothesis will address this view taking into account the number of defaulters relative to quantity.
+
+<br />
+
+**HYPOTHESIS 2 - People aged between 35 and 40 have less default**
+
+<br />
+
+**DEFAULT PEOPLE BETWEEN 20 AND 34 YEARS OLD**:
+
+person_age|not_default|default|all|percent_default
+|-|-|-|-|-
+20|9|2|11|18.18 %
+21|709|286|995|28.74 %
+22|2317|657|2974|22.09 %
+23|2551|636|3187|19.96 %
+24|2258|582|2840|20.49 %
+25|1891|518|2409|21.50 %
+26|1586|381|1967|19.37 %
+27|1368|331|1699|19.48 %
+28|1153|293|1446|20.26 %
+29|1041|259|1300|19.92 %
+30|771|179|950|18.84 %
+31|635|153|788|19.42 %
+32|547|123|670|18.36 %
+33|480|114|594|19.19 %
+34|392|89|481|18.50 %
+All|17708|4603|22311|20.63 %
+
+<br />
+
+**DEFAULT PEOPLE BETWEEN 35 AND 40 YEARS OLD**:
+
+person_age|not_default|default|all|percent_default
+|-|-|-|-|-
+35|357|92|449|20.49 %
+36|226|71|297|23.91 %
+37|191|44|235|18.72 %
+38|149|27|176|15.34 %
+39|123|36|159|22.64 %
+40|102|21|123|17.07 %
+All|1148|291|1439|20.22 %
+
+<br />
+
+>* The percentage of defaulters for people aged 20 to 34 is 20.63%, while for people aged 35 to 40 this percentage is 20.22%. Therefore, it is not possible to say that the number of defaults is associated with young or older people.
+
 
 
 

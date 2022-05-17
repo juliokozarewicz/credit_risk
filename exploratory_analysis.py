@@ -48,8 +48,7 @@ class Exploratory_analysis:
             self.main_variables = main_variables
         
         else:
-            self.main_variables = self.data_frame.columns
-        
+            self.main_variables = self.data_frame.columns 
 
 
     def categorical_plot(self):
@@ -194,3 +193,94 @@ class Exploratory_analysis:
                 txt2.write(line)
         
         return
+
+
+class Hypotheses(Exploratory_analysis):
+    """
+    Test of the stipulated hypotheses.
+    """
+
+    def __init__(self, data_frame, **kwargs):
+        super().__init__(data_frame, **kwargs)
+    
+    def h1(self):
+        
+        df_hip = DataFrame(self.data_frame).drop(['_id'], axis=1)
+        
+        plt.style.use(self.style_graph)
+        fig, ax = plt.subplots(figsize=(18, 6), dpi=600)
+        
+        countplot(x='person_age',
+                  hue='loan_status',
+                  data = df_hip,
+                  palette=self.palette)
+        
+        plt.legend(title="LOAN STATUS", labels=['Not default', 'Default'])
+        plt.rcParams.update({'font.size': 11})
+        plt.xticks(rotation = 30) 
+        plt.tight_layout() 
+        plt.savefig(f'1_results/10_h1.jpeg')
+        
+        return
+
+
+    def h2(self):
+        
+        df_hip2 = DataFrame(self.data_frame).drop(['_id'], axis=1)
+        
+        filt = ( (df_hip2['person_age'] >= 35) &
+                 (df_hip2['person_age'] <= 40) )
+        
+        df_filtered = df_hip2[filt]
+        
+        df_35_40 = crosstab(df_filtered['person_age'],
+                            df_filtered['loan_status'],
+                            margins=True)
+        
+        df_35_40.columns = ['not_default', 'default', 'all']
+        
+        percent_def = (df_35_40['default'] / df_35_40['all']) * 100
+        
+        percent_def = percent_def.map(lambda x: f'{x:.2f} %')
+        
+        df_35_40['percent_default'] = percent_def
+        
+        df_35_40.to_csv('1_results/10_h2.txt', sep='|')
+        
+        with open('1_results/10_h2.txt', 'r') as txt:
+            txt = txt.readlines()
+            txt.insert(1, f"{'|-' * (len(df_35_40.columns))}")
+            txt[1] = f'{txt[1]}|-\n'
+            txt.insert(0, f'**DEFAULT PEOPLE BETWEEN 35 AND 40 YEARS OLD**:\n\n')
+        
+        with open('1_results/10_h2.txt', 'w') as txt2:
+            for line in txt:
+                txt2.write(line)
+        
+        filt2 = (df_hip2['person_age'] < 35)
+        
+        df_filtered2 = df_hip2[filt2]
+        
+        df_20_35 = crosstab(df_filtered2['person_age'],
+                            df_filtered2['loan_status'],
+                            margins=True)
+        
+        df_20_35.columns = ['not_default', 'default', 'all']
+        
+        percent_def = (df_20_35['default'] / df_20_35['all']) * 100
+        
+        percent_def = percent_def.map(lambda x: f'{x:.2f} %')
+        
+        df_20_35['percent_default'] = percent_def
+        
+        df_20_35.to_csv('1_results/10_h2_2.txt', sep='|')
+        
+        with open('1_results/10_h2_2.txt', 'r') as txt:
+            txt = txt.readlines()
+            txt.insert(1, f"{'|-' * (len(df_20_35.columns))}")
+            txt[1] = f'{txt[1]}|-\n'
+            txt.insert(0, f'**DEFAULT PEOPLE BETWEEN 20 AND 34 YEARS OLD**:\n\n')
+        
+        with open('1_results/10_h2_2.txt', 'w') as txt2:
+            for line in txt:
+                txt2.write(line)
