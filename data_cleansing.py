@@ -78,7 +78,7 @@ class Data_cleansing:
                                               upsert=True,
                                               array_filters=None)
         except Exception as error:
-            print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")
+            print(f"\n\n{'*' * 50}\n\nCOPY DB BKP:\n\n{error}\n\n{'*' * 50}")
         
         return
 
@@ -142,7 +142,7 @@ class Data_cleansing:
                                               array_filters=None)
         
         except Exception as error:
-            print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")
+            print(f"\n\n{'*' * 50}\n\nDATA CLEANSING NAN:\n\n{error}\n\n{'*' * 50}")
         
         return
 
@@ -174,7 +174,7 @@ class Data_cleansing:
             
             for col in df_data.columns:
                 
-                if df_data[col].dtype != 'object' & df_data[col].name != 'loan_status':
+                if df_data[col].dtype != 'object' and df_data[col].name != 'loan_status':
                     
                     q1, q3 = percentile(df_data[col], [25 , 75])
                     
@@ -239,7 +239,7 @@ class Data_cleansing:
             plt.savefig('1_results/0_outliers.jpeg')
         
         except Exception as error:
-            print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")
+            print(f"\n\n{'*' * 50}\n\nDATA CLEANSING OUTLIER:\n\n{error}\n\n{'*' * 50}")
         
         return
 

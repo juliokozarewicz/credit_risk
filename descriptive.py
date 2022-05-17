@@ -78,7 +78,7 @@ class Descriptive_stats:
                 desc_stat.write(col_list)
         
         except Exception as error:
-            print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")
+            print(f"\n\n{'*' * 50}\n\nDESCRIBE ATRIBUTES:\n\n{error}\n\n{'*' * 50}")
         
         return
 
@@ -114,7 +114,7 @@ class Descriptive_stats:
                 plt.savefig(f"1_results/3_hist_{col}.jpg")
         
         except Exception as error:
-            print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")
+            print(f"\n\n{'*' * 50}\n\nGRAPH DEPENDENT VAR:\n\n{error}\n\n{'*' * 50}")
         
         return
 
@@ -177,7 +177,7 @@ class Descriptive_stats:
                     txt3.write(line)
         
         except Exception as error:
-            print(f"\n\n{'*' * 50}\n\n{error}\n\n{'*' * 50}")
+            print(f"\n\n{'*' * 50}\n\nESTATISTIC DATA:\n\n{error}\n\n{'*' * 50}")
         
         return
 
