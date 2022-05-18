@@ -1,10 +1,3 @@
-PERSON AGE:
-   1 - Younger people have a higher number of default
-    2 - People aged between 35 and 40 have less default
-PERSON INCOME:
-   3 - People with lower incomes have more cases of default
-    4 - People with a higher percentage of their income committed to the loan 
-         have a higher default rate
 EMPLOYMENT LENGTH:
    5 - The default rate is lower for people who have worked for 3 years or more
 LOAN INTENT:

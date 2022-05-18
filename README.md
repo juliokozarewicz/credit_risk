@@ -197,6 +197,7 @@ All|18856|4894|23750|20.61 %
 </p>
 
 **HYPOTHESIS 1 - Younger people have a higher number of default**
+
 <p align="left">
 	<br />
  	<img src="/1_results/10_h1.jpeg" />
@@ -251,6 +252,31 @@ All|1148|291|1439|20.22 %
 
 >* The percentage of defaulters for people aged 20 to 34 is 20.63%, while for people aged 35 to 40 this percentage is 20.22%. Therefore, it is not possible to say that the number of defaults is associated with young or older people.
 
+<br />
+
+**HYPOTHESIS 3 - People with lower incomes have more cases of default**
+
+<p align="left">
+	<br />
+ 	<img src="/1_results/10_h3.jpeg" width="600" />
+	<br />
+	<br />
+</p>
+
+>* It is to observe that the average references to income are actually lower for people in default.
+
+<br />
+
+**HYPOTHESIS 4 - People with a higher percentage of their income committed to the loan have a higher default rate**
+
+<p align="left">
+	<br />
+ 	<img src="/1_results/10_h4.jpeg" width="600" />
+	<br />
+	<br />
+</p>
+
+>* It is worth noting that the averages of income commitment are in fact higher for people in default.
 
 
 

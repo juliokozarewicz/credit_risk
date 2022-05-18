@@ -1,6 +1,7 @@
 from pandas import DataFrame, read_csv, crosstab
 from seaborn import countplot, heatmap
 from matplotlib import pyplot as plt
+from seaborn import boxplot
 
 
 class Exploratory_analysis:
@@ -284,3 +285,39 @@ class Hypotheses(Exploratory_analysis):
         with open('1_results/10_h2_2.txt', 'w') as txt2:
             for line in txt:
                 txt2.write(line)
+
+
+    def h3(self):
+        
+        df_h3 = DataFrame(self.data_frame).drop(['_id'], axis=1)
+        
+        fig, ax = plt.subplots(figsize=(12, 6), dpi=300)
+        plt.style.use(self.style_graph)
+        
+        boxplot(x='loan_status',
+                y='person_income',
+                data=df_h3,
+                palette=self.palette)
+        
+        plt.rcParams.update({'font.size': 11})
+        plt.xticks([0, 1], ['not default', 'default'], rotation = 20)
+        plt.tight_layout()
+        plt.savefig(f'1_results/10_h3.jpeg')
+
+
+    def h4(self):
+        
+        df_h4 = DataFrame(self.data_frame).drop(['_id'], axis=1)
+        
+        fig, ax = plt.subplots(figsize=(12, 6), dpi=300)
+        plt.style.use(self.style_graph)
+        
+        boxplot(x='loan_status',
+                y='loan_percent_income',
+                data=df_h4,
+                palette=self.palette)
+        
+        plt.rcParams.update({'font.size': 11})
+        plt.xticks([0, 1], ['not default', 'default'], rotation = 20)
+        plt.tight_layout()
+        plt.savefig(f'1_results/10_h4.jpeg')
