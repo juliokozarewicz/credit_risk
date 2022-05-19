@@ -235,6 +235,7 @@ class Data_cleansing:
                              color='tomato',
                              alpha=0.15)
             
+            plt.legend(labels=['Normal', 'Outlier'])
             plt.tight_layout()
             plt.savefig('1_results/0_outliers.jpeg')
         

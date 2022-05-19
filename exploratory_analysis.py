@@ -321,3 +321,48 @@ class Hypotheses(Exploratory_analysis):
         plt.xticks([0, 1], ['not default', 'default'], rotation = 20)
         plt.tight_layout()
         plt.savefig(f'1_results/10_h4.jpeg')
+
+
+    def h5(self):
+        
+        df_h5 = DataFrame(self.data_frame).drop(['_id'], axis=1)
+        
+        plt.style.use(self.style_graph)
+        fig, ax = plt.subplots(figsize=(18, 6), dpi=600)
+        
+        countplot(x=df_h5['person_emp_length'],
+                  hue=df_h5['loan_status'],
+                  palette=self.palette)
+        
+        plt.legend(title="LOAN STATUS", labels=['Not default', 'Default'])
+        plt.rcParams.update({'font.size': 11})
+        plt.xticks(rotation = 30) 
+        plt.tight_layout() 
+        plt.savefig(f'1_results/10_h5.jpeg')
+        
+        return
+
+
+    def h6(self):
+        
+        df_h6 = DataFrame(self.data_frame).drop(['_id'], axis=1)
+        
+        plt.style.use(self.style_graph)
+        fig, ax = plt.subplots(figsize=(18, 6), dpi=600)
+        
+        df_h6 = df_h6[ df_h6['loan_status'] == 1 ]
+        
+        countplot(x='loan_intent',
+                  hue='loan_status',
+                  data = df_h6,
+                  order = df_h6['loan_intent'].value_counts().index,
+                  palette = self.palette)
+        
+        ax.legend([],[], frameon=False)
+        plt.rcParams.update({'font.size': 11})
+        plt.xticks(rotation = 30) 
+        plt.tight_layout() 
+        plt.savefig(f'1_results/10_h6.jpeg')
+        
+        return
+

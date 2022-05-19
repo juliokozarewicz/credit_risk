@@ -1,7 +1,3 @@
-EMPLOYMENT LENGTH:
-   5 - The default rate is lower for people who have worked for 3 years or more
-LOAN INTENT:
-   6 - There are more default cases for debt consolidation
 LOAN GRADE:
    7 - The higher the grade, the fewer are the cases of default
 LOAN INTEREST RATE:

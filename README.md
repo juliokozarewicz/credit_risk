@@ -278,6 +278,32 @@ All|1148|291|1439|20.22 %
 
 >* It is worth noting that the averages of income commitment are in fact higher for people in default.
 
+<br />
 
+**HYPOTHESIS 5 - The default rate is lower for people who have worked for 3 years or more**
+
+<p align="left">
+	<br />
+ 	<img src="/1_results/10_h5.jpeg" />
+	<br />
+	<br />
+</p>
+
+>* It is possible to observe that the default rate is actually lower for people who have worked for 3 years or more.
+
+<br />
+
+**HYPOTHESIS 6 - There are more default cases for debt consolidation**
+
+<p align="left">
+	<br />
+ 	<img src="/1_results/10_h6.jpeg" />
+	<br />
+	<br />
+</p>
+
+>* This assumption is not true, there are more cases of default related to "MEDICAL".
+
+<br />
 
 Under development...
