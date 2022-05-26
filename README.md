@@ -306,4 +306,30 @@ All|1148|291|1439|20.22 %
 
 <br />
 
+**HYPOTHESIS 7 - The higher the grade, the fewer are the cases of default**
+
+<p align="left">
+	<br />
+ 	<img src="/1_results/10_h7.jpeg" />
+	<br />
+	<br />
+</p>
+
+* False! The higher the grade, the greater the number of people who pay their debts, however, it is possible to observe that this does not mean that higher grades imply a lower number of defaulters.
+
+<br />
+
+**HYPOTHESIS 8 - A higher interest rate leads to a greater number of defaulters**
+
+<p align="left">
+	<br />
+ 	<img src="/1_results/10_h8.jpeg" />
+	<br />
+	<br />
+</p>
+
+>* Not true! the largest number of defaults is concentrated in interest rates that are between 13% and 16%.
+
+<br />
+
 Under development...

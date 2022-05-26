@@ -1,4 +1,0 @@
-LOAN GRADE:
-   7 - The higher the grade, the fewer are the cases of default
-LOAN INTEREST RATE:
-   8 - A higher interest rate leads to a greater number of defaulters
