@@ -7,6 +7,7 @@ from data_cleansing import Data_cleansing
 from descriptive import Descriptive_stats
 from pathlib import Path
 from exploratory_analysis import Exploratory_analysis, Hypotheses
+from pre_process import Pre_processing
 
 
 # make dir
@@ -117,4 +118,18 @@ hip_test.h5()
 hip_test.h6()
 hip_test.h7()
 hip_test.h8()
+# ----------------------------------------------------------------------------
+
+# pre process
+# ----------------------------------------------------------------------------
+pre_process = Pre_processing(
+
+                    db_raw,
+                    client, 
+                    data_base,
+                    collection
+
+)
+
+pre_process.data_scaling()
 # ----------------------------------------------------------------------------

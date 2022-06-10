@@ -77,6 +77,7 @@ class Data_cleansing:
                                               {'db_backup': 1} },
                                               upsert=True,
                                               array_filters=None)
+        
         except Exception as error:
             print(f"\n\n{'*' * 50}\n\nCOPY DB BKP:\n\n{error}\n\n{'*' * 50}")
         
